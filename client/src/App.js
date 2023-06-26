@@ -22,6 +22,11 @@ const App = () => {
     socket.on('addTask', task => {
       addTask(task);
     });
+
+    return () => {
+      socket.disconnect();
+    }
+    
   }, []);
 
   const addTask = (task) => {
